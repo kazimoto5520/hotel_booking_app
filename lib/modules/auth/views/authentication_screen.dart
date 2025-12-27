@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hotel_booking_app/core/routes/app_routes.dart';
 import 'package:hotel_booking_app/core/theme/app_colors.dart';
 import 'package:hotel_booking_app/core/ui/app_button.dart';
 import 'package:hotel_booking_app/core/ui/app_text_field.dart';
@@ -180,7 +181,9 @@ class AuthenticationScreen extends StatelessWidget {
         ),
         AppButton(
           label: "Continue",
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(AppRoutes.otpVerification);
+          },
         ),
       ],
     );

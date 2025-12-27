@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:hotel_booking_app/core/routes/app_routes.dart';
 import 'package:hotel_booking_app/modules/auth/views/authentication_screen.dart';
+import 'package:hotel_booking_app/modules/auth/views/otp_verification_screen.dart';
 import 'package:hotel_booking_app/modules/home/home_screen.dart';
 import 'package:hotel_booking_app/modules/onboarding/views/onboarding_screen.dart';
 
@@ -13,6 +14,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.signIn,
       page: () => AuthenticationScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.otpVerification,
+      page: () => OtpVerificationScreen(),
     ),
     GetPage(
       name: AppRoutes.home,
