@@ -12,7 +12,7 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.signIn,
-      page: () => const AuthenticationScreen(),
+      page: () => AuthenticationScreen(),
     ),
     GetPage(
       name: AppRoutes.home,
