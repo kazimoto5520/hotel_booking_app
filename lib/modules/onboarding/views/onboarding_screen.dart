@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hotel_booking_app/core/routes/app_routes.dart';
 import 'package:hotel_booking_app/core/ui/app_step_button.dart';
 import 'package:hotel_booking_app/modules/onboarding/controllers/onboarding_controller.dart';
 import 'package:hotel_booking_app/modules/onboarding/widgets/onboarding_image_grid.dart';
@@ -34,16 +35,16 @@ class OnboardingScreen extends StatelessWidget {
       "assets/images/onboarding/hotel4.jpg",
     ],
     [
-      "assets/images/onboarding/hotel5.jpg",
-      "assets/images/onboarding/hotel6.jpg",
-      "assets/images/onboarding/hotel7.jpg",
-      "assets/images/onboarding/hotel8.jpg",
+      "assets/images/onboarding/hotel4.jpg",
+      "assets/images/onboarding/hotel3.jpg",
+      "assets/images/onboarding/hotel2.jpg",
+      "assets/images/onboarding/hotel1.jpg",
     ],
     [
-      "assets/images/onboarding/hotel9.jpg",
-      "assets/images/onboarding/hotel10.jpg",
-      "assets/images/onboarding/hotel11.jpg",
-      "assets/images/onboarding/hotel12.jpg",
+      "assets/images/onboarding/hotel1.jpg",
+      "assets/images/onboarding/hotel2.jpg",
+      "assets/images/onboarding/hotel3.jpg",
+      "assets/images/onboarding/hotel4.jpg",
     ],
   ];
 
@@ -60,33 +61,26 @@ class OnboardingScreen extends StatelessWidget {
             return Column(
               children: [
                 const SizedBox(height: 24),
-
                 OnboardingImageGrid(
                   images: onboardingImages[step],
                 ),
-
                 const SizedBox(height: 60),
-
                 _showTitleDescription(
                   context,
                   title: content["title"]!,
                   description: content["desc"]!,
                 ),
-
                 const Spacer(),
-
                 if (controller.canGoBack)
                   TextButton(
                     onPressed: controller.prev,
                     child: const Text("Back"),
                   ),
-
                 const SizedBox(height: 12),
-
                 AppStepButton(
                   onTap: () {
                     if (controller.isLastStep) {
-                      Get.offAllNamed("/sign-in");
+                      Get.offAllNamed(AppRoutes.signIn);
                     } else {
                       controller.next();
                     }
