@@ -182,7 +182,7 @@ class _AppPinCodeFieldState extends State<AppPinCodeField>
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.7),
+                      // color: Colors.white.withOpacity(0.7),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Center(
