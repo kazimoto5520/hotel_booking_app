@@ -22,14 +22,18 @@ class OtpVerificationScreen extends StatelessWidget {
               _showLogoAndHeadings(context),
               const SizedBox(height: 24),
               const SizedBox(height: 24),
-              AppPinCodeField(
-                length: 6,
-                controller: controller.otpController,
-                onCompleted: (code) {
-                  // verify OTP
-                  print("OTP entered: $code");
-                },
-              ),
+              Obx(() {
+                return AppPinCodeField(
+                  controller: controller.otpController,
+                  length: 6,
+                  enabled: !controller.isLoading,
+                  loading: controller.isLoading,
+                  success: controller.isSuccess,
+                  errorText: controller.isError ? "Invalid OTP code" : null,
+                  onCompleted: controller.verifyOtp,
+                  onResend: controller.resendOtp,
+                );
+              }),
             ],
           ),
         ),
