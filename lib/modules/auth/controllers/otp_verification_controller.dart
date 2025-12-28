@@ -21,7 +21,7 @@ class OtpVerificationController extends GetxController {
 
     if (otp == "000000") {
       status.value = OtpStatus.success;
-      Get.offAllNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.main);
     } else {
       status.value = OtpStatus.error;
     }
