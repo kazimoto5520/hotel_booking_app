@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hotel_booking_app/modules/home/controllers/home_controller.dart';
+import 'package:hotel_booking_app/modules/home/widgets/home_hotel_card_stack.dart';
+import 'package:hotel_booking_app/modules/home/widgets/home_hotel_skeleton.dart';
 
 class HomeTabContents extends StatelessWidget {
   const HomeTabContents({super.key, required this.controller});
@@ -50,19 +52,23 @@ class HomeTabContents extends StatelessWidget {
           '🔥',
         ),
         const SizedBox(height: 16),
-
-        _hotelCard(),
-
+        controller.isLoading.value
+            ? const HotelSkeleton()
+            : HomeHotelCardStack(
+                hotels: controller.currentHotels,
+              ),
         const SizedBox(height: 32),
-
         _sectionTitle(
           context,
           'Nearby Location',
           '🗺️',
         ),
         const SizedBox(height: 16),
-
-        _hotelCard(),
+        // controller.isLoading.value
+        //     ? const HotelSkeleton()
+        //     : HomeHotelCardStack(
+        //         hotels: controller.currentHotels,
+        //       ),
       ],
     );
   }

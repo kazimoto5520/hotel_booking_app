@@ -12,7 +12,7 @@ class HotelBookingApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Hotel Booking App',
       theme: AppTheme.lightTheme,
-      initialRoute: AppRoutes.onboarding,
+      initialRoute: AppRoutes.main,
       getPages: AppPages.pages,
     );
   }
