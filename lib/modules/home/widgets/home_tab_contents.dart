@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hotel_booking_app/modules/home/controllers/home_controller.dart';
 import 'package:hotel_booking_app/modules/home/widgets/home_hotel_card_stack.dart';
+import 'package:hotel_booking_app/modules/home/widgets/home_hotel_nearby_location.dart';
 import 'package:hotel_booking_app/modules/home/widgets/home_hotel_skeleton.dart';
 
 class HomeTabContents extends StatelessWidget {
@@ -64,11 +65,16 @@ class HomeTabContents extends StatelessWidget {
           '🗺️',
         ),
         const SizedBox(height: 16),
-        // controller.isLoading.value
-        //     ? const HotelSkeleton()
-        //     : HomeHotelCardStack(
-        //         hotels: controller.currentHotels,
-        //       ),
+        controller.isLoading.value
+            ? const SizedBox(
+                height: 180,
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            : HomeHotelNearbyLocation(
+                hotels: controller.currentNearbyHotels,
+              ),
       ],
     );
   }
@@ -85,22 +91,6 @@ class HomeTabContents extends StatelessWidget {
         const SizedBox(width: 6),
         Text(emoji),
       ],
-    );
-  }
-
-  Widget _hotelCard() {
-    return Container(
-      height: 220,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Colors.grey.shade200,
-        borderRadius: BorderRadius.circular(24),
-      ),
-      alignment: Alignment.center,
-      child: const Text(
-        'Hotel Card',
-        style: TextStyle(fontSize: 16),
-      ),
     );
   }
 }

@@ -20,4 +20,5 @@ class AppColors {
 
   // Borders & dividers
   static const Color border = Color(0xFFE0E0E0);
+  static const Color yellow = Color(0xFFFFC83D);
 }
